@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-# reisagent
-Mobile App for traveling information
-=======
-<<<<<<< HEAD
 # reisagent
 Mobile App for traveling information
 =======
