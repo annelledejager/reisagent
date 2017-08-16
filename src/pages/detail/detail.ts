@@ -16,6 +16,13 @@ import { HTTP } from '@ionic-native/http';
 })
 export class DetailPage {
   item: any;
+  results: any;
+  summary: any;
+  temperature: any;
+  time: any;
+  currency: any;
+  rate: any;
+  timediff: any;
   url = 'https://api.forecast.io/forecast/' + '1771dccfc4b60079884874798e8def35' + '/';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: HTTP) {
@@ -27,23 +34,31 @@ export class DetailPage {
   ionViewDidLoad() {
     var latitude  =  25.7877;
     var longitude = 80.2241;
+    var currency = 'ZAR'
+    var currentdate = new Date();
 
-    this.http.get(this.url + latitude + ',' + longitude + '?callback=JSON_CALLBACK', {}, {})
+    this.http.get(this.url + latitude + ',' + longitude, {}, {})
       .then(data => {
-
-        console.log(data);
-        console.log(data.status);
-        console.log(data.data); // data received by server
-        console.log(data.headers);
-
+        this.results = JSON.parse(data.data);
+        this.summary = this.results.currently.summary
+        this.temperature = ((this.results.currently.temperature - 32) * 5/9).toFixed(2)
+        this.time = this.results.currently.time
       })
       .catch(error => {
-
-        console.log(error)
         console.log(error.status);
-        console.log(error.error); // error message as string
-        console.log(error.headers);
-
       });
+
+    this.http.get('http://api.fixer.io/latest', {}, {})
+      .then(data => {
+        this.rate = JSON.parse(data.data);
+        this.rate = this.rate.rates.ZAR
+      })
+      .catch(error => {
+        console.log(error.status);
+      });
+
+      this.currency = currency;
+
+      this.timediff = currentdate.toLocaleString();
   }
 }

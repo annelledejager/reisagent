@@ -20,17 +20,25 @@
     </ion-item>   
     <ion-item>    
       Temperature<ion-icon name="sunny" item-end></ion-icon>
+    <h5>{{summary}}</h5>
+      <span class="large">{{temperature}} ° </span>
     </ion-item>   
     <ion-item>            
       Currency<ion-icon name="card" item-end></ion-icon>
-    </ion-item>   
+      <h5>{{currency}} </h5>
+    </ion-item>  
+     <ion-item>            
+      Exchange rate<ion-icon name="card" item-end></ion-icon>
+      <h5>1 Euro : {{rate}} {{currency}}</h5>
+    </ion-item>  
     <ion-item>                    
-      Time Difference <ion-icon name="alarm" item-end></ion-icon>
+      Current Time <ion-icon name="alarm" item-end></ion-icon>
+        <h5>{{time}}</h5> 
+    </ion-item>  
+    <ion-item>                    
+      Time Difference <ion-icon name="alarm" item-end></ion-icon>  
+       <h5>{{timediff}}</h5>  
     </ion-item>   
   </ion-list>
-
-    <!-- Display current location's weather data-->
-    <h5><weather-icon icon="current.icon" id="current-icon"></weather-icon> {{current.currently.summary}}</h5>
-    <p>The temperature now is</p>  
-  <span class="large">{{current.currently.temperature}} ° </span>
+    
 </ion-content>
