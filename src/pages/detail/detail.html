@@ -29,5 +29,8 @@
     </ion-item>   
   </ion-list>
 
- 
+    <!-- Display current location's weather data-->
+    <h5><weather-icon icon="current.icon" id="current-icon"></weather-icon> {{current.currently.summary}}</h5>
+    <p>The temperature now is</p>  
+  <span class="large">{{current.currently.temperature}} ° </span>
 </ion-content>

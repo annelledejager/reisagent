@@ -28,8 +28,6 @@ export class DetailPage {
     var latitude  =  25.7877;
     var longitude = 80.2241;
 
-    // this.http.jsonp(this.url + latitude + ',' + longitude + '?callback=JSON_CALLBACK');
-
     this.http.get(this.url + latitude + ',' + longitude + '?callback=JSON_CALLBACK', {}, {})
       .then(data => {
 
