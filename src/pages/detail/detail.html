@@ -12,7 +12,8 @@
 
 </ion-header>
 
-
+  {{results}}
+    
 <ion-content>
   <ion-list>
     <ion-item>
@@ -25,20 +26,25 @@
     </ion-item>   
     <ion-item>            
       Currency<ion-icon name="card" item-end></ion-icon>
-      <h5>{{currency}} </h5>
+      <h5>{{currencyname}} </h5>
     </ion-item>  
      <ion-item>            
       Exchange rate<ion-icon name="card" item-end></ion-icon>
       <h5>1 Euro : {{rate}} {{currency}}</h5>
     </ion-item>  
     <ion-item>                    
-      Current Time <ion-icon name="alarm" item-end></ion-icon>
+      Current time <ion-icon name="alarm" item-end></ion-icon>
         <h5>{{time}}</h5> 
+    </ion-item> 
+        <ion-item>                    
+      Time zone <ion-icon name="alarm" item-end></ion-icon>
+        <h5>{{timezone}}</h5> 
     </ion-item>  
     <ion-item>                    
-      Time Difference <ion-icon name="alarm" item-end></ion-icon>  
+      Time difference <ion-icon name="alarm" item-end></ion-icon>  
        <h5>{{timediff}}</h5>  
     </ion-item>   
   </ion-list>
-    
+
+
 </ion-content>

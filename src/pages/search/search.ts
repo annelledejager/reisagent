@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { DetailPage } from '../detail/detail';
+import { HTTP } from '@ionic-native/http';
 
 /**
  * Generated class for the SearchPage page.
@@ -19,16 +20,20 @@ export class SearchPage {
 
   searchQuery: string = '';
   items: string[];
+  results: any;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private http: HTTP) {
     this.initializeItems();
   }
 
   initializeItems() {
-    this.items = [
-      'Amsterdam',
-      'Bogota',
-    ];
+    this.http.get("http://gd.geobytes.com/AutoCompleteCity?&q=Cap", {}, {})
+      .then(data => {
+        this.items  = JSON.parse(data.data);
+      })
+      .catch(error => {
+        console.log(error.status);
+      });
   }
 
   getItems(ev: any) {
