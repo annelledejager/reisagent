@@ -60,8 +60,8 @@ export class DetailPage {
         this.http.get('http://gd.geobytes.com/GetCityDetails', {}, {})
           .then(data => {
             let results  = JSON.parse(data.data);
-            let currencyname = results.geobytescurrency
-            let currency = results.geobytescurrencycode
+            // let currencyname = results.geobytescurrency
+            // let currency = results.geobytescurrencycode
             var lat_c = results.geobyteslatitude
             var lng_c = results.geobyteslongitude
 
