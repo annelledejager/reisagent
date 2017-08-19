@@ -11,18 +11,18 @@
   </ion-navbar>
 
 </ion-header>
-
-  {{results}}
     
 <ion-content>
   <ion-list>
     <ion-item>
-      Distance<ion-icon name="navigate" item-end></ion-icon>
+      Distance and flight duration<ion-icon name="navigate" item-end></ion-icon>
+      <h5>{{distance}} km</h5>
+      <h5>±{{flighttime}} hours</h5>
     </ion-item>   
     <ion-item>    
       Temperature<ion-icon name="sunny" item-end></ion-icon>
     <h5>{{summary}}</h5>
-      <span class="large">{{temperature}} ° </span>
+      <span class="large">{{temperature}} °C</span>
     </ion-item>   
     <ion-item>            
       Currency<ion-icon name="card" item-end></ion-icon>
@@ -33,13 +33,10 @@
       <h5>1 Euro : {{rate}} {{currency}}</h5>
     </ion-item>  
     <ion-item>                    
-      Current time <ion-icon name="alarm" item-end></ion-icon>
+      Current date/time <ion-icon name="alarm" item-end></ion-icon>
         <h5>{{time}}</h5> 
+        <h5>Time zone {{timezone}}</h5> 
     </ion-item> 
-        <ion-item>                    
-      Time zone <ion-icon name="alarm" item-end></ion-icon>
-        <h5>{{timezone}}</h5> 
-    </ion-item>  
     <ion-item>                    
       Time difference <ion-icon name="alarm" item-end></ion-icon>  
        <h5>{{timediff}}</h5>  

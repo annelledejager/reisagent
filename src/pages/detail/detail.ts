@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
+import 'moment-duration-format';
+import * as moment from 'moment';
+
 
 /**
  * Generated class for the DetailPage page.
@@ -16,7 +19,6 @@ import { HTTP } from '@ionic-native/http';
 })
 export class DetailPage {
   item: any;
-  results: any;
   summary: any;
   temperature: any;
   time: any;
@@ -25,8 +27,10 @@ export class DetailPage {
   timediff: any;
   timezone: any;
   currencyname: any;
+  distance: any;
+  flighttime: any;
   url_w = 'https://api.forecast.io/forecast/' + '1771dccfc4b60079884874798e8def35' + '/';
-  url_c = 'http://getcitydetails.geobytes.com/GetCityDetails?fqcn=' + this.item
+  url_c = 'http://getcitydetails.geobytes.com/GetCityDetails?fqcn=' 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: HTTP) {
     this.item = navParams.get('item');
@@ -35,44 +39,78 @@ export class DetailPage {
   }
 
   ionViewDidLoad() {
-    var currency = 'ZAR'
-    var currentdate = new Date();
-    var lat = 0
-    var lng = 0
-
-    this.http.get(this.url_c, {}, {})
+    this.http.get(this.url_c + this.item.replace(/ /g,"+"), {}, {})
       .then(data => {
-        this.results  = JSON.parse(data.data);
-        this.timezone = this.results.geobytestimezone
-        this.currencyname = this.results.geobytescurrency
-        this.currency = this.results.geobytescurrencycode
-        lat = this.results.geobyteslatitude
-        lng = this.results.geobyteslongitude
-      })
+        let results  = JSON.parse(data.data);
+        this.timezone = results.geobytestimezone;
+        this.currencyname = results.geobytescurrency
+        this.currency = results.geobytescurrencycode
+        let lat = results.geobyteslatitude
+        let lng = results.geobyteslongitude
+
+        this.http.get('http://api.fixer.io/latest', {}, {})
+        .then(data => {
+          let results = JSON.parse(data.data);
+          this.rate = results.rates[this.currency]
+        })
+        .catch(error => {
+          console.log(error.status);
+        });
+        
+        this.http.get('http://gd.geobytes.com/GetCityDetails', {}, {})
+          .then(data => {
+            let results  = JSON.parse(data.data);
+            let currencyname = results.geobytescurrency
+            let currency = results.geobytescurrencycode
+            var lat_c = results.geobyteslatitude
+            var lng_c = results.geobyteslongitude
+
+            this.distance = this.getDistanceFromLatLonInKm(lat, lng, lat_c, lng_c).toFixed(0)
+            this.flighttime = (this.distance/900).toFixed(0)
+          })
+          .catch(error => {
+            console.log(error.status);
+          });
+
+        this.http.get(this.url_w + lat + ',' + lng, {}, {})
+          .then(data => {
+            let results  = JSON.parse(data.data);
+            this.summary = results.currently.summary
+            this.temperature = ((results.currently.temperature - 32) * 5/9).toFixed(0)
+            this.time = moment(this.toDateTime(results.currently.time)).format("YYYY-MM-DD HH:mm:ss");
+            let now = moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
+            this.timediff = moment.utc(moment(now,).diff(moment(this.time))).format("HH:mm:ss")
+          })
+          .catch(error => {
+            console.log(error.status);
+          }); 
+        })
       .catch(error => {
         console.log(error.status);
       });
-
-      this.http.get(this.url_w + lat + ',' + lng, {}, {})
-      .then(data => {
-        this.results  = JSON.parse(data.data);
-        this.summary = this.results.currently.summary
-        this.temperature = ((this.results.currently.temperature - 32) * 5/9).toFixed(2)
-        this.time = this.results.currently.time
-      })
-      .catch(error => {
-        console.log(error.status);
-      });  
-
-    this.http.get('http://api.fixer.io/latest', {}, {})
-      .then(data => {
-        this.rate = JSON.parse(data.data);
-        this.rate = this.rate.rates.ZAR
-      })
-      .catch(error => {
-        console.log(error.status);
-      });
-
-      this.timediff = currentdate.toLocaleString();
   }
+  
+  toDateTime(secs) {
+    var t = new Date(1970, 0, 1); // Epoch
+    t.setSeconds(secs);
+    return t;
+  }
+  
+  getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+    var R = 6371; // Radius of the earth in km
+    var dLat = this.deg2rad(lat2-lat1);  // deg2rad below
+    var dLon = this.deg2rad(lon2-lon1); 
+    var a = 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * 
+      Math.sin(dLon/2) * Math.sin(dLon/2)
+      ; 
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    var d = R * c; // Distance in km
+    return d;
+   }
+
+  deg2rad(deg) {
+    return deg * (Math.PI/180)
+   }
 }
