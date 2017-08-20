@@ -31,7 +31,13 @@ export class HomePage {
         zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
+
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions)
+
+    var marker = new google.maps.Marker({
+      position: latlng,
+      map: this.map,
+    });
     }).catch((error) => {
       console.log('Error getting location', error);
     });
