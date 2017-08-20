@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
 import 'moment-duration-format';
 import * as moment from 'moment';
@@ -11,7 +11,6 @@ import * as moment from 'moment';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-detail',
   templateUrl: 'detail.html',
