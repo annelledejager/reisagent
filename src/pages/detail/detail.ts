@@ -106,7 +106,7 @@ export class DetailPage {
       
     let mapOptions = {
         center: this.latlng,
-        zoom: 15,
+        zoom: 2,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
@@ -118,37 +118,28 @@ export class DetailPage {
     });
     
     var infowindow = new google.maps.InfoWindow();
-    var html = `  <ion-list>
+    var html = `  
+    <ion-list>
     <ion-item>
-      Distance and flight duration<ion-icon name="navigate" item-end></ion-icon>
-        <i class="wi wi-night-sleet"></i>
-      <h5>` + this.distance +`km</h5>
-      <h5>±` + this.flighttime + `hours</h5>
-    </ion-item>`   
-  //   <ion-item>    
-  //     <i class="wi wi-night-sleet"></i>
-  //     Temperature<ion-icon name="sunny" item-end></ion-icon>
-  //   <h5>{{summary}}</h5>
-  //     <span class="large">{{temperature}} °C</span>
-  //   </ion-item>   
-  //   <ion-item>            
-  //     Currency<ion-icon name="card" item-end></ion-icon>
-  //     <h5>{{currencyname}} </h5>
-  //   </ion-item>
-  //    <ion-item>            
-  //     Exchange rate<ion-icon name="card" item-end></ion-icon>
-  //     <h5>1 Euro : {{rate}} {{currency}}</h5>
-  //   </ion-item>  
-  //   <ion-item>                    
-  //     Current date/time <ion-icon name="alarm" item-end></ion-icon>
-  //       <h5>{{time}}</h5> 
-  //       <h5>Time zone {{timezone}}</h5> 
-  //   </ion-item> 
-  //   <ion-item>                    
-  //     Time difference <ion-icon name="alarm" item-end></ion-icon>  
-  //      <h5>{{timediff}}</h5>  
-  //   </ion-item>   
-  // </ion-list>`
+      <p>` + this.distance +` km, ±` + this.flighttime + ` hours</p>
+    </ion-item>   
+    <ion-item>    
+      <p><b>Temperature</b> ` + this.summary + ` ` + this.temperature +`°C</p>
+    </ion-item>   
+    <ion-item>            
+      <p><b>Currency</b> ` + this.currencyname +`</p> 
+    </ion-item>
+     <ion-item>            
+      <p><b>Exchange rate</b> 1 Euro : ` + this.rate + this.currency +`</p>
+    </ion-item>  
+    <ion-item>                    
+      <p><b>Current date/time</b> ` + this.time +`</p> 
+        <p><b>Time zone</b> ` + this.timezone +`</p> 
+    </ion-item> 
+    <ion-item>                    
+      <b>Time diff </b> ` + this.timediff +`
+    </ion-item>   
+  </ion-list>`
       infowindow.setContent(html);
       infowindow.open(this.map, marker)
   }
