@@ -13,8 +13,37 @@
 </ion-header>
     
 <ion-content>
-
+  <div>
+     <ion-list>
+    <!--<ion-item>
+      Distance and flight duration-->
+   <b>   <p>{{distance}}km, ±{{flighttime}} hours</p>
+    <!--</ion-item>   
+     <ion-item>    -->
+       <!--Temperature-->
+    <p>{{summary}}, {{temperature}} °C</p>
+     <!--</ion-item>   
+     <ion-item>            -->
+      <!--Currency-->
+       <p>{{currencyname}} </p>
+     <!--</ion-item>
+     <ion-item>            -->
+       <!--Exchange rate-->
+     <p>1 Euro : {{rate}} {{currency}}</p>
+    <!--</ion-item>  
+   <ion-item>                    -->
+      <!--Current date/time -->
+        <p>{{time}}</p> 
+      <p>Time zone {{timezone}}</p> 
+   <!--</ion-item> 
+     <ion-item>                    -->
+       <!--Time difference -->
+        <p>{{timediff}}</p>  </b>
+     <!--</ion-item>   -->
+    </ion-list>
+</div>
+<div #outerdiv id="outerdiv">
   <div #map id="map"></div>  
-
+</div>
 
 </ion-content>

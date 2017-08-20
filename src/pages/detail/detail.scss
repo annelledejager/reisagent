@@ -1,8 +1,14 @@
 page-detail {
 
+
+
 }
 
-#map {
-    width: 100%;
-    height: 100%;
+#outerdiv {width: 100%; height: 30%; position:fixed; text-align:center}
+#map {width: 70%; height: 100%; margin:0px auto; display:inline-block}
+
+ion-content{
+    text-align: center;
 }
+
+
