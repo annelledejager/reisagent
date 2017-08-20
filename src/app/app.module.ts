@@ -7,7 +7,6 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { DetailPage } from '../pages/detail/detail'
-import { SearchPage } from '../pages/search/search'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,7 +23,6 @@ import { Geolocation } from '@ionic-native/geolocation';
     HomePage,
     TabsPage,
     DetailPage,
-    SearchPage,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +35,6 @@ import { Geolocation } from '@ionic-native/geolocation';
     HomePage,
     TabsPage,
     DetailPage,
-    SearchPage,
   ],
   providers: [
     StatusBar,

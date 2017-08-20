@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef, NgZone } from '@angular/core';
-import { NavController, ModalController , ViewController} from 'ionic-angular';
+import { NavController, ViewController} from 'ionic-angular';
 
 import { DetailPage } from '../detail/detail';
  
@@ -18,7 +18,7 @@ export class HomePage {
   map: any; 
   address;
  
-  constructor(private geolocation: Geolocation, private navCtrl: NavController, private modalCtrl: ModalController, public viewCtrl: ViewController, private zone: NgZone) {
+  constructor(private geolocation: Geolocation, private navCtrl: NavController, public viewCtrl: ViewController, private zone: NgZone) {
     this.address = {
       place: ''
     };
@@ -30,7 +30,7 @@ export class HomePage {
   }
 
   ionViewDidLoad(){
-    this.initMap()
+    // this.initMap()
   }
 
   initMap(){
@@ -47,7 +47,7 @@ export class HomePage {
 
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions)
 
-    var marker = new google.maps.Marker({
+    new google.maps.Marker({
       position: latlng,
       map: this.map,
     });
@@ -56,7 +56,7 @@ export class HomePage {
     });
   }
 
-    dismiss() {
+  dismiss() {
     this.viewCtrl.dismiss();
   }
 
