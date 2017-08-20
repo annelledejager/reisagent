@@ -33,7 +33,8 @@ export class DetailPage {
   url_c = 'http://getcitydetails.geobytes.com/GetCityDetails?fqcn=' 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: HTTP) {
-    this.item = navParams.get('item');
+    let item = navParams.get('item');
+    this.item = item.split(',')[0]
 
     this.ionViewDidLoad();
   }
@@ -82,10 +83,12 @@ export class DetailPage {
             this.timediff = moment.utc(moment(now,).diff(moment(this.time))).format("HH:mm:ss")
           })
           .catch(error => {
+            console.log(error.message);
             console.log(error.status);
           }); 
         })
       .catch(error => {
+        console.log(error.message);
         console.log(error.status);
       });
   }

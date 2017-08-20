@@ -1,5 +1,7 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { NavController, ModalController , ViewController} from 'ionic-angular';
+
+import { DetailPage } from '../detail/detail';
  
  import { Geolocation } from '@ionic-native/geolocation';
 
@@ -8,12 +10,23 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  autocompleteItems;
+  autocomplete;
+  service = new google.maps.places.AutocompleteService();
  
   @ViewChild('map') mapElement: ElementRef;
-  map: any;
+  map: any; 
+  address;
  
-  constructor(private geolocation: Geolocation) {
- 
+  constructor(private geolocation: Geolocation, private navCtrl: NavController, private modalCtrl: ModalController, public viewCtrl: ViewController, private zone: NgZone) {
+    this.address = {
+      place: ''
+    };
+
+    this.autocompleteItems = [];
+      this.autocomplete = {
+      query: ''
+    };
   }
 
   ionViewDidLoad(){
@@ -42,5 +55,33 @@ export class HomePage {
       console.log('Error getting location', error);
     });
   }
- 
+
+    dismiss() {
+    this.viewCtrl.dismiss();
+  }
+
+  chooseItem(item: any) {
+    this.navCtrl.push(DetailPage, {
+      item: item
+    })
+  }
+  
+  updateSearch() {
+    if (this.autocomplete.query == '') {
+      this.autocompleteItems = [];
+      return;
+    }
+    let me = this;
+    this.service.getPlacePredictions({ input: this.autocomplete.query, types: ['(cities)']}, function (predictions, status) {
+      me.autocompleteItems = []; 
+      me.zone.run(function () {
+        predictions.forEach(function (prediction) {
+          me.autocompleteItems.push(prediction.description);
+        });
+      });
+    });
+  }
 }
+
+
+

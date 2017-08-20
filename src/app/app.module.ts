@@ -37,7 +37,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     HomePage,
     TabsPage,
     DetailPage,
-    SearchPage
+    SearchPage,
   ],
   providers: [
     StatusBar,
