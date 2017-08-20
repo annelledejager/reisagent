@@ -48,7 +48,6 @@ export class SearchPage {
         this.items = JSON.parse(data.data);
       })
       .catch(error => {
-        this.items = error.status
         console.log(error.status);
       });    
 
