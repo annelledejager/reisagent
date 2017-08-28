@@ -1,6 +1,6 @@
 ## reisagent
 
-Mobile App for traveling information
+Ionic mobile App for traveling information
 
 [Ionic](http://ionicframework.com/docs/) projects.
 
