@@ -3,64 +3,42 @@ import { NavController, ViewController} from 'ionic-angular';
 
 import { DetailPage } from '../detail/detail';
  
- import { Geolocation } from '@ionic-native/geolocation';
+import { Geolocation } from '@ionic-native/geolocation';
+
+interface addressData {
+   place: string;
+}
+
+interface autocompleteData {
+   query: string;
+}
 
 @Component({
   selector: 'home-page',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  autocompleteItems;
-  autocomplete;
-  service = new google.maps.places.AutocompleteService();
+  service = new google.maps.places.AutocompleteService(); 
+
+  autocompleteItems: string[];
+  autocomplete: autocompleteData;
+  address: addressData;
  
-  @ViewChild('map') mapElement: ElementRef;
-  map: any; 
-  address;
- 
-  constructor(private geolocation: Geolocation, private navCtrl: NavController, public viewCtrl: ViewController, private zone: NgZone) {
+  constructor(private navCtrl: NavController, public viewCtrl: ViewController, private zone: NgZone) {
     this.address = {
       place: ''
     };
-
-    this.autocompleteItems = [];
-      this.autocomplete = {
+    this.autocompleteItems = [];   
+    this.autocomplete = {
       query: ''
     };
-  }
-
-  ionViewDidLoad(){
-    // this.initMap()
-  }
-
-  initMap(){
-    this.geolocation.getCurrentPosition().then((resp) => {
-      let lat = resp.coords.latitude
-      let lng = resp.coords.longitude
-      let latlng = new google.maps.LatLng(lat,lng);
-      
-      let mapOptions = {
-        center: latlng,
-        zoom: 15,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions)
-
-    new google.maps.Marker({
-      position: latlng,
-      map: this.map,
-    });
-    }).catch((error) => {
-      console.log('Error getting location', error);
-    });
   }
 
   dismiss() {
     this.viewCtrl.dismiss();
   }
 
-  chooseItem(item: any) {
+  chooseItem(item: string) {
     this.navCtrl.push(DetailPage, {
       item: item
     })
