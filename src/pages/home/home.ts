@@ -1,9 +1,8 @@
-import { Component, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { NavController, ViewController} from 'ionic-angular';
 
 import { DetailPage } from '../detail/detail';
  
-import { Geolocation } from '@ionic-native/geolocation';
 
 interface addressData {
    place: string;
