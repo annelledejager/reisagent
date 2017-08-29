@@ -1,9 +1,3 @@
-<!--
-  Generated template for the DetailPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -15,30 +9,30 @@
 <ion-content>
   <div>
      <ion-list>
-    <!--<ion-item>
+   <!--<ion-item>
       Distance and flight duration-->
-   <b>   <p>{{distance}}km, ±{{flighttime}} hours</p>
+   <b>   <p>{{summary_data.distance}} km, ±{{summary_data.flighttime}} hours</p>
     <!--</ion-item>   
      <ion-item>    -->
        <!--Temperature-->
-    <p>{{summary}}, {{temperature}} °C</p>
+    <p>{{summary_data.summary}}, {{summary_data.temperature}} °C</p>
      <!--</ion-item>   
      <ion-item>            -->
       <!--Currency-->
-       <p>{{currencyname}} </p>
+       <p>{{summary_data.currencyname}} </p>
      <!--</ion-item>
      <ion-item>            -->
        <!--Exchange rate-->
-     <p>1 Euro : {{rate}} {{currency}}</p>
+     <p>1 Euro : {{summary_data.rate}} {{summary_data.currency}}</p>
     <!--</ion-item>  
    <ion-item>                    -->
       <!--Current date/time -->
-        <p>{{time}}</p> 
-      <p>Time zone {{timezone}}</p> 
+        <p>{{summary_data.time}}</p> 
+      <p>Time zone {{summary_data.timezone}}</p> 
    <!--</ion-item> 
      <ion-item>                    -->
        <!--Time difference -->
-        <p>{{timediff}}</p>  </b>
+        <p>{{summary_data.timediff}}</p>  </b>
      <!--</ion-item>   -->
     </ion-list>
 </div>
