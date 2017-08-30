@@ -53,7 +53,6 @@ export class DetailPage {
     
     this.loading = this.loadingController.create({content : "Loading..."});
     this.loading.present();
-
   }
 
   ionViewWillEnter(){
@@ -62,6 +61,7 @@ export class DetailPage {
         this.setCityDetails(JSON.parse(data.data)); 
       })
       .catch(error => {
+        this.loading.dismissAll();
         console.log(error.message);
       });
   };
@@ -83,6 +83,7 @@ export class DetailPage {
           this.setWeatherDetails(JSON.parse(data.data));
         })
         .catch(error => {
+          this.loading.dismissAll();
           console.log(error.message);
         }); 
   };
@@ -96,6 +97,13 @@ export class DetailPage {
     this.summary_data.timediff = moment.utc(moment(now,).diff(moment(this.summary_data.time))).format("HH:mm:ss")
 
     this.getExchangeRateDetails(this.summary_data.currency);
+
+    setTimeout(() => {
+      this.loading.dismiss();
+    }, 20000);
+    this.loading.onDidDismiss(() => {
+      console.log('An error should be logged here, this probably means a timeout.');
+    });
   };
 
   getCurrentCityDetails(){
@@ -115,6 +123,7 @@ export class DetailPage {
         this.initMap(latlng, latlng_current)
       })
       .catch(error => {
+        this.loading.dismissAll();
         console.log(error.message);
       });
   };
@@ -128,6 +137,7 @@ export class DetailPage {
         this.getCurrentCityDetails();
       })
       .catch(error => {
+        this.loading.dismissAll();
         console.log(error.message);
       });
   };
