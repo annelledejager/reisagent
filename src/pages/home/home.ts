@@ -33,6 +33,16 @@ export class HomePage {
     };
   }
 
+  ionViewWillEnter() {
+    this.address = {
+      place: ''
+    };
+    this.autocompleteItems = [];   
+    this.autocomplete = {
+      query: ''
+    };
+  }
+
   dismiss() {
     this.viewCtrl.dismiss();
   }
@@ -52,9 +62,14 @@ export class HomePage {
     this.service.getPlacePredictions({ input: this.autocomplete.query, types: ['(cities)']}, function (predictions, status) {
       me.autocompleteItems = []; 
       me.zone.run(function () {
-        predictions.forEach(function (prediction) {
-          me.autocompleteItems.push(prediction.description);
-        });
+        if (predictions == null){
+          me.autocompleteItems.push('No results');
+        }
+        else{  
+          predictions.forEach(function (prediction) {
+            me.autocompleteItems.push(prediction.description);
+          });
+        }
       });
     });
   }
