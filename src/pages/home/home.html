@@ -1,6 +1,5 @@
-
-<ion-content class="searchbar-center">
-      <ion-searchbar [(ngModel)]="autocomplete.query" [showCancelButton]="true" (ionInput)="updateSearch()" (ionCancel)="dismiss()"></ion-searchbar>
+<ion-content id='home-page'>
+      <ion-searchbar [(ngModel)]="autocomplete.query" (ionInput)="updateSearch()" (ionCancel)="dismiss()" placeholder="Enter city here"></ion-searchbar>
     <ion-item *ngFor="let item of autocompleteItems" tappable (click)="chooseItem(item)">
       {{ item }}
     </ion-item>
