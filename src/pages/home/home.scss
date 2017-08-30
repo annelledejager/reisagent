@@ -2,13 +2,18 @@ page-home {
 
 }
 
+#home-page {
+    background: url('../../img/green_background.jpg') no-repeat center center fixed; 
+    background-size: cover;
+}
+
 .searchbar-md {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     width: 100%;
     box-sizing: border-box;
-    min-height: 30em;
+    min-height: 40em;
     max-width: 350px;
     margin: 0 auto;
     padding: 0;
@@ -24,6 +29,52 @@ page-home {
     perspective: 1000;
     text-align: center;
     color: white;
-    background-color: #6CD981;
+    background-color: transparent;
 }
 
+
+.searchbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 18em;
+    max-width: 100;
+    margin: 0 auto;
+    padding: 0;
+    perspective: 1000;
+    border: 0;
+}
+
+.searchbar-ios {
+    background-color: transparent; 
+    color: white;
+}
+
+.item-ios{
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 0;
+    perspective: 1000;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+}
+
+.searchbar-input-container {
+    width: 60%;
+    background-color: transparent;
+}
+
+.searchbar-ios .searchbar-input {
+  padding: 0 28px;
+  border-radius: 5px;
+  height: 3rem;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #fff;
+  background-color: transparent;
+}
