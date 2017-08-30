@@ -1,11 +1,12 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { NavParams, LoadingController } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
 import { Helper }  from '../detail/helper';
 import 'moment-duration-format';
 import * as moment from 'moment';
 
 interface summaryData {
+  name: string;
   summary: string;
   temperature: string;
   time: string;
@@ -30,6 +31,7 @@ export class DetailPage {
   lng: number;
   lat_current: number;
   lng_current: number;
+  loading: any;
 
   url_w = 'https://api.forecast.io/forecast/' + '1771dccfc4b60079884874798e8def35' + '/';
   url_c = 'http://getcitydetails.geobytes.com/GetCityDetails?fqcn=' 
@@ -37,26 +39,24 @@ export class DetailPage {
   @ViewChild('map') mapElement: ElementRef;
   map: any; 
   
-  constructor(public navParams: NavParams, private http: HTTP, public helper: Helper) {
-    this.item = navParams.get('item').split(',')[0];
-
-    this.summary_data = {  summary: '', temperature: '', time: '', currency: '', rate: '', timediff: '', timezone: '', currencyname: '', distance: 0, flighttime: 0};
+  constructor(public loadingController:LoadingController, public navParams: NavParams, private http: HTTP, public helper: Helper) {
+    this.summary_data = { name: '', summary: '', temperature: '', time: '', currency: '', rate: '', timediff: '', timezone: '', currencyname: '', distance: 0, flighttime: 0};
+    this.summary_data.name = navParams.get('item')
+    this.item = this.summary_data.name.split(',')[0];
+    
     this.helper = helper;
 
     this.lat = 0;
     this.lng = 0;
     this.lat_current = 0;
     this.lng_current = 0;
+    
+    this.loading = this.loadingController.create({content : "Loading..."});
+    this.loading.present();
 
-    this.ionViewDidLoad();
   }
 
-  ionViewDidLoad() {
-
-    this.getCityDetails();
-  }
-
-  getCityDetails(){
+  ionViewWillEnter(){
       this.http.get(this.url_c + this.item.replace(/ /g,"+"), {}, {})
       .then(data => {
         this.setCityDetails(JSON.parse(data.data)); 
@@ -153,5 +153,7 @@ export class DetailPage {
         strokeWeight: 1,
         map: this.map
     });
+
+    this.loading.dismissAll();
   }
 }

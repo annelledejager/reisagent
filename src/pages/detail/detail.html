@@ -4,38 +4,19 @@
 </ion-header>
     
 <ion-content id='detail-page'>
-      <ion-title>{{item}}</ion-title>
+      <ion-title>{{summary_data.name}}</ion-title>
   <div>
      <ion-list>
-   <!--<ion-item>
-      Distance and flight duration-->
-   <b><p>{{summary_data.distance}} km, ±{{summary_data.flighttime}} hours</p>
-    <!--</ion-item>   
-     <ion-item>    -->
-       <!--Temperature-->
-    <p>{{summary_data.summary}}, {{summary_data.temperature}} °C</p>
-     <!--</ion-item>   
-     <ion-item>            -->
-      <!--Currency-->
-       <p>{{summary_data.currencyname}} </p>
-     <!--</ion-item>
-     <ion-item>            -->
-       <!--Exchange rate-->
-     <p>1 Euro : {{summary_data.rate}} {{summary_data.currency}}</p>
-    <!--</ion-item>  
-   <ion-item>                    -->
-      <!--Current date/time -->
-        <p>{{summary_data.time}}</p> 
+      <b><p>{{summary_data.distance}} km, ±{{summary_data.flighttime}} hours</p>
+      <p>{{summary_data.summary}}, {{summary_data.temperature}} °C</p>
+      <p>{{summary_data.currencyname}} </p>
+      <p>1 Euro : {{summary_data.rate}} {{summary_data.currency}}</p>
+      <p>{{summary_data.time}}</p> 
       <p>Time zone {{summary_data.timezone}}</p> 
-   <!--</ion-item> 
-     <ion-item>                    -->
-       <!--Time difference -->
-        <p>{{summary_data.timediff}}</p>  </b>
-     <!--</ion-item>   -->
+      <p>{{summary_data.timediff}}</p>  </b>
     </ion-list>
 </div>
 <div #outerdiv id="outerdiv">
   <div #map id="map"></div>  
 </div>
-
 </ion-content>

@@ -48,9 +48,11 @@ export class HomePage {
   }
 
   chooseItem(item: string) {
-    this.navCtrl.push(DetailPage, {
-      item: item
-    })
+    if (item != 'No results'){
+      this.navCtrl.push(DetailPage, {
+        item: item
+      })
+    }
   }
   
   updateSearch() {
