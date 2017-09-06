@@ -1,9 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavParams, LoadingController } from 'ionic-angular';
-import { HTTP } from '@ionic-native/http';
 import { summaryData } from '../interfaces';
 import 'moment-duration-format';
-import * as moment from 'moment';
 
 
 @Component({
@@ -18,7 +16,7 @@ export class DetailPage {
   @ViewChild('map') mapElement: ElementRef;
   map: any;
 
-  constructor(public loadingController: LoadingController, public navParams: NavParams, private http: HTTP) {
+  constructor(public loadingController: LoadingController, public navParams: NavParams) {
     this.summary_data = navParams.get('summary_data')
     this.latlng = navParams.get('latlng')
     this.latlng_current = navParams.get('latlng_current')
