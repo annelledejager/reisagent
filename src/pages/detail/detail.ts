@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavParams, LoadingController } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
-import { summaryData } from '../home/home';
+import { summaryData } from '../interfaces';
 import 'moment-duration-format';
 import * as moment from 'moment';
 
