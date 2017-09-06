@@ -74,8 +74,8 @@ export class HomePage {
         timediff: '', 
         timezone: '', 
         currencyname: '', 
-        distance: 0, 
-        flighttime: 0
+        distance: '', 
+        flighttime: ''
       };
       this.item = this.summary_data.name.split(',')[0];
 
@@ -164,8 +164,9 @@ export class HomePage {
         this.lat_current = results.geobyteslatitude;
         this.lng_current = results.geobyteslongitude;
 
-        this.summary_data.distance = this.helper.getDistanceFromLatLonInKm(this.lat, this.lng, this.lat_current, this.lng_current);
-        this.summary_data.flighttime = (this.summary_data.distance / 900);
+        let distance = this.helper.getDistanceFromLatLonInKm(this.lat, this.lng, this.lat_current, this.lng_current);
+        this.summary_data.flighttime = (distance / 900).toFixed(0);
+        this.summary_data.distance = distance.toFixed(0);
 
         let latlng = new google.maps.LatLng(this.lat, this.lng);
         let latlng_current = new google.maps.LatLng(this.lat_current, this.lng_current);

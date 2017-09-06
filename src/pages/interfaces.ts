@@ -8,8 +8,8 @@ export interface summaryData {
   timediff: string;
   timezone: string;
   currencyname: string;
-  distance: number;
-  flighttime: number;
+  distance: string;
+  flighttime: string;
 }
 
 export interface addressData {
