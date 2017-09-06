@@ -1,22 +1,30 @@
 page-detail {
 
-    #outerdiv {width: 100%; height: 30%; position:fixed; text-align:center}
-    #map {width: 70%; height: 100%; margin:0px auto; display:inline-block}
+  #outerdiv {
+    width: 100%; 
+    height: 30%; 
+    position:fixed; 
+    text-align:center
+  }
 
+  #map {
+    width: 70%; 
+    height: 100%; 
+    margin:0px auto; 
+    display:inline-block
+  }
 
-}
-
-#detail-page {
+  #detail-page {
     background: url('../../img/green_background_2.jpg') no-repeat center center fixed; 
     background-size: cover;
     text-align: center;
-}
+  }
 
-.toolbar-background {
-  background-color: transparent;
-}
+  .toolbar-background {
+    background-color: transparent;
+  }
+
   .back-button {
         color: white;
   } 
-
-
+}
