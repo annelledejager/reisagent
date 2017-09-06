@@ -35,7 +35,6 @@ export class HomePage {
   map: any;
 
   constructor(private navCtrl: NavController, public viewCtrl: ViewController, private zone: NgZone, public loadingController: LoadingController, public navParams: NavParams, private http: HTTP, public helper: Helper, private alertCtrl: AlertController) {
-    this.helper = helper;
     this.initialize();
   }
 
@@ -97,8 +96,6 @@ export class HomePage {
     });
   }
 
-
-
   // Fetch the data
   getCityDetails() {
     this.http.get(URL_GEOBYTES + this.item.replace(/ /g, "+"), {}, {})
@@ -106,7 +103,6 @@ export class HomePage {
         this.setCityDetails(JSON.parse(data.data));
       })
       .catch(error => {
-        this.loading.dismissAll();
         this.errorAlert()
         console.log(error.message);
       });
@@ -129,7 +125,6 @@ export class HomePage {
         this.setWeatherDetails(JSON.parse(data.data));
       })
       .catch(error => {
-        this.loading.dismissAll();
         this.errorAlert()
         console.log(error.message);
       });
@@ -168,7 +163,6 @@ export class HomePage {
         this.initMap(latlng, latlng_current)
       })
       .catch(error => {
-        this.loading.dismissAll();
         this.errorAlert()
         console.log(error.message);
       });
@@ -183,7 +177,6 @@ export class HomePage {
         this.getCurrentCityDetails();
       })
       .catch(error => {
-        this.loading.dismissAll();
         this.errorAlert()
         console.log(error.message);
       });
@@ -200,6 +193,7 @@ export class HomePage {
   }
 
   errorAlert() {
+    this.loading.dismissAll();
     let alert = this.alertCtrl.create({
       title: 'Error',
       subTitle: 'No data available for ' + this.item,

@@ -7,32 +7,6 @@ page-home {
     background-size: cover;
 }
 
-.searchbar-md {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 100%;
-    box-sizing: border-box;
-    min-height: 40em;
-    max-width: 350px;
-    margin: 0 auto;
-    padding: 0;
-    perspective: 1000;
-}
-
-.item.item-block.item-md {
-    width: 100%;
-    box-sizing: border-box;
-    max-width: 350px;
-    margin: 0 auto;
-    padding: 0;
-    perspective: 1000;
-    text-align: center;
-    color: white;
-    background-color: transparent;
-}
-
-
 .searchbar {
     display: flex;
     flex-direction: column;
