@@ -10,7 +10,6 @@ export interface summaryData {
   currencyname: string;
   distance: number;
   flighttime: number;
-  center: number;
 }
 
 export interface addressData {

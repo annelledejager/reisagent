@@ -64,8 +64,19 @@ export class HomePage {
     if (item != 'No results') {
 
       // Data related
-      this.summary_data = { name: '', summary: '', temperature: '', time: '', currency: '', rate: '', timediff: '', timezone: '', currencyname: '', distance: 0, flighttime: 0, center: 0 };
-      this.summary_data.name = item;
+      this.summary_data = { 
+        name: item, 
+        summary: '', 
+        temperature: '', 
+        time: '', 
+        currency: '', 
+        rate: '', 
+        timediff: '', 
+        timezone: '', 
+        currencyname: '', 
+        distance: 0, 
+        flighttime: 0
+      };
       this.item = this.summary_data.name.split(',')[0];
 
       this.loading = this.loadingController.create({ content: "Loading..." });
@@ -155,12 +166,11 @@ export class HomePage {
 
         this.summary_data.distance = this.helper.getDistanceFromLatLonInKm(this.lat, this.lng, this.lat_current, this.lng_current);
         this.summary_data.flighttime = (this.summary_data.distance / 900);
-        this.summary_data.center = this.summary_data.distance / 2;
 
         let latlng = new google.maps.LatLng(this.lat, this.lng);
         let latlng_current = new google.maps.LatLng(this.lat_current, this.lng_current);
 
-        this.initMap(latlng, latlng_current)
+        this.goToDetailPage(latlng, latlng_current)
       })
       .catch(error => {
         this.errorAlert()
@@ -182,7 +192,7 @@ export class HomePage {
       });
   };
 
-  initMap(latlng: any, latlng_current: any) {
+  goToDetailPage(latlng: any, latlng_current: any) {
     this.loading.dismissAll();
     this.navCtrl.push(DetailPage, {
       summary_data: this.summary_data,
