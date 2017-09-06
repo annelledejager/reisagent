@@ -5,7 +5,7 @@ import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
 import { DetailPage } from '../pages/detail/detail'
-import { Helper }  from '../pages/detail/helper';
+import { Helper }  from '../pages/helper';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
