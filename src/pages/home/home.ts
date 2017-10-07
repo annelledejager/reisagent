@@ -75,7 +75,6 @@ export class HomePage {
         timezone: '', 
         currencyname: '', 
         distance: '', 
-        flighttime: ''
       };
       this.item = this.summary_data.name.split(',')[0];
 
@@ -165,7 +164,6 @@ export class HomePage {
         this.lng_current = results.geobyteslongitude;
 
         let distance = this.helper.getDistanceFromLatLonInKm(this.lat, this.lng, this.lat_current, this.lng_current);
-        this.summary_data.flighttime = (distance / 900).toFixed(0);
         this.summary_data.distance = distance.toFixed(0);
 
         let latlng = new google.maps.LatLng(this.lat, this.lng);

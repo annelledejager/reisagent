@@ -9,7 +9,6 @@ export interface summaryData {
   timezone: string;
   currencyname: string;
   distance: string;
-  flighttime: string;
 }
 
 export interface addressData {
