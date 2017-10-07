@@ -1,8 +1,15 @@
 ## reisagent
 
-Ionic mobile app for traveling information - weather, time, distance, temperature etc.
+Ionic mobile app for traveling information - weather, time, distance, temperature etc. for input travel destination.
 
 [Ionic](http://ionicframework.com/docs/) projects.
+
+![alt text](https://github.com/annelledejager/reisagent/blob/master/screenshot1.png)
+
+![alt text](https://github.com/annelledejager/reisagent/blob/master/screenshot2.png)
+
+![alt text](https://github.com/annelledejager/reisagent/blob/master/screenshot3.png)
+
 
 ### With the Ionic CLI:
 
