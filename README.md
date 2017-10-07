@@ -2,13 +2,13 @@
 
 Ionic mobile app for traveling information - weather, time, distance, temperature etc. for input travel destination.
 
-[Ionic](http://ionicframework.com/docs/) projects.
+Please see [Ionic](http://ionicframework.com/docs/) projects.
 
-![alt text](https://github.com/annelledejager/reisagent/blob/master/screenshot1.png)
+![alt text](https://github.com/annelledejager/reisagent/blob/master/screenshot1.png =300x600)
 
-![alt text](https://github.com/annelledejager/reisagent/blob/master/screenshot2.png)
+![alt text](https://github.com/annelledejager/reisagent/blob/master/screenshot2.png =300x600)
 
-![alt text](https://github.com/annelledejager/reisagent/blob/master/screenshot3.png)
+![alt text](https://github.com/annelledejager/reisagent/blob/master/screenshot3.png =300x600)
 
 
 ### With the Ionic CLI:
