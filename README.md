@@ -4,11 +4,11 @@ Ionic mobile app for traveling information - weather, time, distance, temperatur
 
 Please see [Ionic](http://ionicframework.com/docs/) projects.
 
-![alt text](https://github.com/annelledejager/reisagent/blob/master/screenshot1.png =300x600)
+![reisagent image 1](https://github.com/annelledejager/reisagent/blob/master/screenshot1.png) <!-- .element height="50%" width="50%" -->
 
-![alt text](https://github.com/annelledejager/reisagent/blob/master/screenshot2.png =300x600)
+![reisagent image 2](https://github.com/annelledejager/reisagent/blob/master/screenshot2.png) <!-- .element height="50%" width="50%" -->
 
-![alt text](https://github.com/annelledejager/reisagent/blob/master/screenshot3.png =300x600)
+![reisagent image 3](https://github.com/annelledejager/reisagent/blob/master/screenshot3.png <!-- .element height="50%" width="50%" -->
 
 
 ### With the Ionic CLI:
