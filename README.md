@@ -4,7 +4,9 @@ Ionic mobile app for traveling information - weather, time, distance, temperatur
 
 Please see [Ionic](http://ionicframework.com/docs/) projects.
 
-<img src="https://github.com/annelledejager/reisagent/blob/master/screenshot1.png" alt="alt text" width="200" height="300">
+<img src="https://github.com/annelledejager/reisagent/blob/master/screenshot1.png" alt="alt text" width="200" height="400">
+<img src="https://github.com/annelledejager/reisagent/blob/master/screenshot2.png" alt="alt text" width="200" height="400">
+<img src="https://github.com/annelledejager/reisagent/blob/master/screenshot3.png" alt="alt text" width="200" height="400">
 
 ### With the Ionic CLI:
 
