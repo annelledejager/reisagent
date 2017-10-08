@@ -1,6 +1,6 @@
 ## reisagent
 
-Ionic mobile app for traveling information - weather, time, distance, temperature etc. for input travel destination.
+Ionic mobile IOS app for traveling information - weather, time, distance, temperature etc. for input travel destination.
 
 Please see [Ionic](http://ionicframework.com/docs/) projects.
 
@@ -14,5 +14,3 @@ Run the following commands
 $ cd reisagent
 $ ionic cordova run ios
 ```
-
-Substitute ios for android if not on a Mac.
