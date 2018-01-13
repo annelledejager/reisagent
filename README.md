@@ -13,6 +13,6 @@ Ionic mobile IOS app for traveling information - weather, time, distance, temper
 Run the following commands
 
 ```bash
-$ cd reisagent
+$ cd reisagent/
 $ ionic cordova run ios
 ```
