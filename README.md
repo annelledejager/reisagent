@@ -4,11 +4,21 @@ Ionic mobile IOS app for traveling information - weather, time, distance, temper
 
 <img src="https://github.com/annelledejager/reisagent/blob/master/screenshot1.png" width="200" height="400">&nbsp;<img src="https://github.com/annelledejager/reisagent/blob/master/screenshot2.png" width="200" height="400">&nbsp;<img src="https://github.com/annelledejager/reisagent/blob/master/screenshot3.png" width="200" height="400">
 
-### Framework
+## Getting the code
 
-[Ionic](http://ionicframework.com/docs/) framework.
+Clone the repository normally 
 
-### With the Ionic CLI
+```
+git clone git@github.com:annelledejager/reisagent.git
+```
+
+### Prerequisites
+
+* [Ionic](https://ionicframework.com/docs/cli/) 
+
+### Run the Ionic project on a connected device
+
+[Docs](https://ionicframework.com/docs/cli/cordova/run/)
 
 Run the following commands
 
@@ -16,3 +26,7 @@ Run the following commands
 $ cd reisagent/
 $ ionic cordova run ios
 ```
+
+## Built With
+
+* [Ionic](http://ionicframework.com/docs/) - the top open source framework for building amazing mobile apps.
