@@ -30,3 +30,7 @@ $ ionic cordova run ios
 ## Built With
 
 * [Ionic](http://ionicframework.com/docs/) - the top open source framework for building amazing mobile apps.
+* [Google Maps API](https://developers.google.com/maps/) - accurate real-time information for mapping, navigation and places.
+* [forecast.io](https://www.npmjs.com/package/forecast.io) - look up the weather anywhere on the globe 
+* [fixer.io](http://fixer.io/) - foreign exchange rates and currency conversion API
+* [geobytes](http://geobytes.com/) - IP geolocation solutions
