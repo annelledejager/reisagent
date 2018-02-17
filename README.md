@@ -2,7 +2,7 @@
 
 Ionic mobile IOS app for traveling information - weather, time, distance, temperature etc. for input travel destination.
 
-<img src="https://github.com/annelledejager/reisagent/blob/master/reisagenttranslation.png" width="200" height="400">
+<img src="https://github.com/annelledejager/reisagent/blob/master/reisagenttranslation.png">
 
 <img src="https://github.com/annelledejager/reisagent/blob/master/screenshot1.png" width="200" height="400">&nbsp;<img src="https://github.com/annelledejager/reisagent/blob/master/screenshot2.png" width="200" height="400">&nbsp;<img src="https://github.com/annelledejager/reisagent/blob/master/screenshot3.png" width="200" height="400">
 
